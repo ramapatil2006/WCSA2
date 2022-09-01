@@ -1,0 +1,51 @@
+package xpathlocator.axis;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FlipkartFilters {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.flipkart.com/");
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//button[text()='✕']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@class='_3704LK']")).sendKeys("laptop");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//button[@class='L0Z3Pu']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[@class='_3879cV' and .='Core i5']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[@class='_2gmUFU _3V8rao' and .='Brand']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[@class='_3879cV' and .='DELL']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[@class='_2gmUFU _3V8rao' and .='Operating System']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[@class='_3879cV' and .='Windows 10']")).click();
+		Thread.sleep(3000);
+		String t1 = driver.findElement(By.xpath("//div[ .='DELL Vostro Core i5 11th Gen - (8 GB/512 GB SSD/Windows 10/2 GB Graphics) Vostro 3400 Thin and Light L...']")).getText();
+		Thread.sleep(3000);
+		String t2 = driver.findElement(By.xpath("//div[ .='DELL Vostro Core i5 11th Gen - (8 GB/512 GB SSD/Windows 10/2 GB Graphics) Vostro 3400 Thin and Light L...']/ancestor::div[@class='_3pLy-c row']/descendant::div[@class='_30jeq3 _1_WHN1']")).getText();
+		Thread.sleep(3000);
+		System.out.println(t1+"  -->  "+t2);
+		Thread.sleep(3000);
+		String t3 = driver.findElement(By.xpath("//div[ .='DELL Inspiron Core i5 11th Gen - (8 GB/512 GB SSD/Windows 10) Inspiron 5410 2 in 1 Laptop']")).getText();
+		Thread.sleep(3000);
+		String t4 = driver.findElement(By.xpath("//div[ .='DELL Inspiron Core i5 11th Gen - (8 GB/512 GB SSD/Windows 10) Inspiron 5410 2 in 1 Laptop']/ancestor::div[@class='_3pLy-c row']/descendant::div[@class='_30jeq3 _1_WHN1']")).getText();
+		Thread.sleep(3000);
+		System.out.println(t3+"  -->  "+t4);
+		Thread.sleep(3000);
+		String t5 = driver.findElement(By.xpath("//div[ .='DELL Vostro Core i5 11th Gen - (8 GB/1 TB HDD/256 GB SSD/Windows 10) Vostro 3400 Thin and Light Laptop']")).getText();
+		Thread.sleep(3000);
+		String t6 = driver.findElement(By.xpath("//div[ .='DELL Vostro Core i5 11th Gen - (8 GB/1 TB HDD/256 GB SSD/Windows 10) Vostro 3400 Thin and Light Laptop']/ancestor::div[@class='_3pLy-c row']/descendant::div[@class='_30jeq3 _1_WHN1']")).getText();
+		Thread.sleep(3000);
+		System.out.println(t5+"  -->  "+t6);
+		driver.close();
+	}
+
+}
